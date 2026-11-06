@@ -41,8 +41,7 @@ fun SiswaApp(
             composable(route = Navigasi.Formulir.name) {
                 FormSiswa(
                     //edit 4 : parameter pilihanJK dan onSubmitButtonClicked
-                    pilihanJK = JenisK.map { id ->
-                        val stringResource = stringResource(id)
+                    pilihanJK = JenisK.map { id -> val stringResource = stringResource(id)
                         stringResource
                     },
                     onSubmitButtonClicked = {
@@ -51,6 +50,14 @@ fun SiswaApp(
                     },
                 )
             }
+            composable(route = Navigasi.Detail.name) {
+                TampilSiswa(
+                    //edit 5 : parameter statusUiSiswa
+                    statusUiSiswa = uiState.value,
+                    onBackButtonClicked = { cancelAndBackToFormulir(navController) },
+                )
+            }
         }
     }
-    }
+}
+
